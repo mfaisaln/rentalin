@@ -65,12 +65,12 @@
             </ul>
           </li>
 
-          <li>
-            <a href="./map.html">
+          <!-- <li>
+            <a href="<?php echo base_url('Booking/Ongkir'); ?>">
               <i class="tim-icons icon-delivery-fast"></i>
               <p>Biaya Kirim</p>
             </a>
-          </li>
+          </li> -->
           <li>
             <a href="<?php echo base_url('User'); ?>">
               <i class="tim-icons icon-single-02"></i>
@@ -78,20 +78,20 @@
             </a>
           </li>
           <li>
-            <a href="./notifications.html">
+            <a href="<?php echo base_url('Pesan'); ?>">
               <i class="tim-icons icon-bell-55"></i>
-              <p>Menhubungi</p>
+              <p>Pesan</p>
             </a>
           </li>
           
           <li>
-            <a href="./tables.html">
+            <a href="<?php echo base_url('Halaman'); ?>">
               <i class="tim-icons icon-refresh-02"></i>
               <p>Kelolah Halaman</p>
             </a>
           </li>
           <li>
-            <a href="./typography.html">
+            <a href="<?php echo base_url('Info'); ?>">
               <i class="tim-icons icon-email-85"></i>
               <p>Kontak Info</p>
             </a>

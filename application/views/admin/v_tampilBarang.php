@@ -76,6 +76,7 @@
                               <th class="text-center">#</th>
                               <th>Nama Barang</th>
                               <th>Merek</th>
+                              <th >Foto</th>
                               <th >Harga</th>
                               <th>Tahun Dibuat</th>
                               <th class="text-right">Aksi</th>
@@ -92,7 +93,19 @@
                                         <td class="text-center"><?php echo $i++;?></td>
                                         <td><?php echo$data->nama_barang;?></td>
                                         <td><?php echo$data->nama_merek;?></td>
-                                        <td><?php echo$data->harga;?></td>
+                                        <td><img src="<?php echo base_url('upload/produk/'.$data->image1) ?>" width="64" /></td>
+                                        <td>
+                                          <?php 
+                                          
+	
+                                            $hasil_rupiah = "Rp " . number_format($data->harga,2,',','.');
+                                            echo $hasil_rupiah;
+                                           
+                                          
+                                          
+                                          ?>
+                                      
+                                        </td>
                                         <td><?php echo$data->tahun;?></td>
                                         <td class="td-actions text-right">
                                           <!-- <button type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">

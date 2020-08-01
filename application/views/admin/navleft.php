@@ -8,7 +8,10 @@
             MFN
           </a>
           <a href="javascript:void(0)" class="simple-text logo-normal">
-            Rentalin
+            
+            <?php
+              echo $this->session->userdata('nama');
+            ?>
           </a>
         </div>
         <ul class="nav">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Tentang extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,13 +18,8 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function __construct(){
-		parent::__construct();
-        $this->load->model('m_barang'); 
-      }
 	public function index()
 	{
-		$data['barang'] = $this->m_barang->produkTerbaru();
-		$this->load->view('v_home',$data);
+		$this->load->view('v_tentang');
 	}
 }

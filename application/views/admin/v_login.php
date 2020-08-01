@@ -34,6 +34,19 @@
         <div class="card">
           <div class="card-body" style="padding:30px;">
             <h2 class="card-title">Login</h2>
+            <?php
+                  if($this->session->userdata('pesan') == '0'){
+            ?>
+                    <div class="alert alert-danger">
+                      <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="tim-icons icon-simple-remove"></i>
+                      </button>
+                      <span>Gagal Login. Silahkan cek username atau password !</span>
+                    </div>
+            <?php
+                  $this->session->set_userdata('pesan', '');
+                  }
+            ?>
             <form action="<?php echo base_url('login/aksi_login'); ?>" method="post">
               <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>

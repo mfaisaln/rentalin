@@ -38,6 +38,11 @@ class User extends CI_Controller {
 		// $this->session->set_userdata('pesan', '');
 		$this->load->view('admin/v_tambahAdmin');
 	}
+	public function DetailAkun(){
+		// $this->session->set_userdata('pesan', '');
+		$data['users'] = $this->m_user->tampil();
+		$this->load->view('v_detailAkun',$data);
+	}
 	public function aksi_tambah()
 	{
         $username=$this->input->post('username');

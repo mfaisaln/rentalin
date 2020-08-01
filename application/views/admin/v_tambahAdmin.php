@@ -64,7 +64,7 @@
                               <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
                                 <i class="tim-icons icon-simple-remove"></i>
                               </button>
-                              <span>Data Merek Sudah ada</span>
+                              <span>Data Admin Sudah ada</span>
                             </div>
 
                 <?php

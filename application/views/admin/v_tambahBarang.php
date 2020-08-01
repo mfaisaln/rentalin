@@ -55,7 +55,7 @@
                 <h5 class="title">Tambah Barang</h5>
               </div>
               <div class="card-body">
-                <form name="theform" action="<?php echo base_url('Barang/aksi_tambah'); ?>" class="form" method="post" onSubmit="return valid(this);">
+                <form name="theform" action="<?php echo base_url('Barang/aksi_tambah'); ?>" class="form" method="post" onSubmit="return valid(this);" enctype="multipart/form-data">
                 <?php
                         if($this->session->userdata('pesan') == "0"){
                           
@@ -129,11 +129,28 @@
                   <div class="row">
                     <div class="col-md-12 pr-md-12">
                       <div class="form-group">
+                      <label>Upload</label> 
+                      <div class="input-group mb-3">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="customFile" name="gambar">
+                          <label class="custom-file-label form-control" for="customFile">Pilih Gambar</label>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                            
+
+                  <div class="row">
+                    <div class="col-md-12 pr-md-12">
+                      <div class="form-group">
                         <label>Spesifikasi</label>
                         <textarea rows="4" cols="80" class="form-control" placeholder="Input Spesifikasi" value="Mike" required="" name="spec"></textarea>
                       </div>
                     </div>
                   </div>
+                  
+                  
                   <div class="row">
                     <div class="col-md-12 pr-md-12">
                       <div class="form-group">
@@ -164,6 +181,10 @@
   <?php $this->load->view('admin/plugin');?> 
   <?php $this->load->view('admin/javascript');?> 
   <script>
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
     $(document).ready(function() {
       $().ready(function() {
         $sidebar = $('.sidebar');

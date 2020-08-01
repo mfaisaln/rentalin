@@ -189,6 +189,7 @@
                         <th>Email</th>
                         <th>Telp</th>
                         <th >Alamat</th>
+                        <th >Foto</th>
                         <th>KTP</th>
                         <th>KK</th>
                         <th class="text-right">Aksi</th>
@@ -208,8 +209,9 @@
                                 <td><?php echo$data2->email;?></td>
                                 <td><?php echo$data2->telp;?></td>
                                 <td><?php echo$data2->alamat;?></td>
-                                <td><?php echo$data2->ktp;?></td>
-                                <td><?php echo$data2->kk;?></td>
+                                <td><img src="<?php echo base_url('upload/produk/'.$data2->foto_users) ?>" width="64" /></td>
+                                <td><img src="<?php echo base_url('upload/produk/'.$data2->ktp) ?>" width="64" /></td>
+                                <td><img src="<?php echo base_url('upload/produk/'.$data2->kk) ?>" width="64" /></td>
                                 <td class="td-actions text-right">
                                   <!-- <button type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon">
                                       <i class="tim-icons icon-single-02"></i>

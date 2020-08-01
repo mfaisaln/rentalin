@@ -1,60 +1,114 @@
 <div class="header-area">
-            <div class="main-header header-sticky">
-                <div class="container-fluid">
-                    <div class="menu-wrapper">
-                        <!-- Logo -->
-                        <div class="logo">
-                            <a href="index.html"><img src="<?php echo site_url('assets2/img/logo/logo.png') ?>" alt=""></a>
-                        </div>
-                        <!-- Main-menu -->
-                        <div class="main-menu d-none d-lg-block">
-                            <nav>                                                
-                                <ul id="navigation">  
-                                    <li><a href="<?php echo base_url('Home'); ?>">Home</a></li>
-                                    <li><a href="<?php echo base_url('Pinjam'); ?>">Pinjam</a></li>
-                                    <li><a href="<?php echo base_url('Tentang'); ?>">Tentang</a></li>
-                                    <li class="hot"><a href="#">Latest</a>
-                                        <ul class="submenu">
-                                            <li><a href="shop.html"> Product list</a></li>
-                                            <li><a href="product_details.html"> Product Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="submenu">
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="elements.html">Element</a></li>
-                                            <li><a href="confirmation.html">Confirmation</a></li>
-                                            <li><a href="checkout.html">Product Checkout</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="<?php echo base_url('Kontak'); ?>">Kontak</a></li>
+    <div class="main-header header-sticky">
+        <div class="container-fluid">
+            <div class="menu-wrapper">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html"><img src="<?php echo site_url('assets2/img/logo/logo.png') ?>" alt="" style="width: 130px;"></a>
+                </div>
+                <!-- Main-menu -->
+                <div class="main-menu d-none d-lg-block">
+                    <nav>                                                
+                        <ul id="navigation">  
+                            <li><a href="<?php echo base_url('Home'); ?>">Home</a></li>
+                            <li><a href="<?php echo base_url('Pinjam'); ?>">Pinjam</a></li>
+                            <li><a href="<?php echo base_url('Tentang'); ?>">Tentang</a></li>
+                            <li class="hot"><a href="#">Latest</a>
+                                <ul class="submenu">
+                                    <li><a href="shop.html"> Product list</a></li>
+                                    <li><a href="product_details.html"> Product Details</a></li>
                                 </ul>
-                            </nav>
-                        </div>
-                        <!-- Header Right -->
-                        <div class="header-right">
-                            <ul>
+                            </li>
+                            <li><a href="blog.html">Blog</a>
+                                <ul class="submenu">
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Pages</a>
+                                <ul class="submenu">
+                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="elements.html">Element</a></li>
+                                    <li><a href="confirmation.html">Confirmation</a></li>
+                                    <li><a href="checkout.html">Product Checkout</a></li>
+                                </ul>
+                            </li>
+                            <!-- <li> 
+                                <a href="login.html"><span class="flaticon-user"></span></a>
+                                <ul class="submenu">
+                                <li><a href="login.html">Login</a></li>
+                                        <li><a href="cart.html">Cart</a></li>
+                                </ul>
+                            </li> -->
+                            <li><a href="<?php echo base_url('Kontak'); ?>">Kontak</a></li>
+                            <?php
+                            if($this->session->userdata('status_user') == "login"){
+                            ?>
+                                <li><a href="#">Akun</a>
+                                    <ul class="submenu">
+                                        <li><a href="login.html">Ganti Password</a></li>
+                                        <li><a href="<?php echo base_url('User/DetailAkun'); ?>">Detail Akun</a></li>
+                                        <li><a href="<?php echo base_url('Login/logoutUser'); ?>">Logout</a></li>
+                                    </ul>
+                                </li>
+                            <?php
+                            
+                            }else{
+
+                            
+                            ?>
+                            <li><a href="<?php echo base_url('Login/User'); ?>">Login</a></li>
+
+                            <?php
+                            }
+                            ?>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- <div class="">
+                    <div class="main-menu d-none d-lg-block">
+                        <nav>                                                
+                            <ul id="navigation"> 
                                 <li>
                                     <div class="nav-search search-switch">
-                                        <span class="flaticon-search"></span>
+                                        <a href="login.html"><span class="flaticon-search"></span></a>
+                                      
                                     </div>
                                 </li>
-                                <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
-                                <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
+                                <li><a href="login.html"><span class="flaticon-user"></span></a>
+                                    <ul class="submenu">
+                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="cart.html">Cart</a></li>
+                                        <li><a href="elements.html">Element</a></li>
+                                        <li><a href="confirmation.html">Confirmation</a></li>
+                                        <li><a href="checkout.html">Product Checkout</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>   
                             </ul>
-                        </div>
+                        </nav>
                     </div>
-                    <!-- Mobile Menu -->
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
+                </div> -->
+                <!-- Header Right -->
+                <div class="header-right ">
+                    <ul >
+                        
+                        <li>
+                            <div class="nav-search search-switch">
+                                <span class="flaticon-search"></span>
+                            </div>
+                        </li>
+                        <!-- <li> <a href="login.html"><span class="flaticon-user"></span></a></li> -->
+                        <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>                        
+                    </ul>
+                    
                 </div>
             </div>
+            <!-- Mobile Menu -->
+            <div class="col-12">
+                <div class="mobile_menu d-block d-lg-none"></div>
+            </div>
         </div>
+    </div>
+</div>

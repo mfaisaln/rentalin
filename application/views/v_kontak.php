@@ -3,11 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Watch shop | eCommers</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!-- CSS here -->
     <?php $this->load->view('css');?> 
@@ -55,32 +53,62 @@
                         <h2 class="contact-title">Ada pertanyaan? Silahkan isi form berikut</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                    <?php
+                                if($this->session->userdata('pesan') == "0"){
+                                
+                        ?>
+                                    <div class="alert alert-danger">
+                                    <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                                        <i class="tim-icons icon-simple-remove"></i>
+                                    </button>
+                                    <span>Gagal Memproses</span>
+                                    </div>
+
+                        <?php
+                                $this->session->set_userdata('pesan', '');
+                                }else if($this->session->userdata('pesan') == ""){
+                                    
+                        ?>
+                            
+                        <?php
+                                }else{
+                        ?>
+                                    <div class="alert alert-info">
+                                    <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                                        <i class="tim-icons icon-simple-remove"></i>
+                                    </button>
+                                    <span><?php echo $this->session->userdata('pesan') ?></span>
+                                    </div>
+                        <?php
+                                $this->session->set_userdata('pesan', '');
+                                }
+                        ?>
+                        <form class="form-contact contact_form" action="<?php echo base_url('Kontak/aksi_tambah'); ?>" method="post">
                             <div class="row">
                                 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="nama" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Nama Anda'" placeholder="Isi Nama Anda">
+                                        <input class="form-control valid" name="nama_visit" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Nama Anda'" placeholder="Isi Nama Anda">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Email Anda'" placeholder="Isi Email Anda">
+                                        <input class="form-control valid" name="email_visit" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Email Anda'" placeholder="Isi Email Anda">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Subjek'" placeholder="Isi Subjekt">
+                                        <input class="form-control" name="subjek" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Subjek'" placeholder="Isi Subjekt">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Pesan'" placeholder=" Isi Pesan"></textarea>
+                                        <textarea class="form-control w-100" name="pesan" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Isi Pesan'" placeholder=" Isi Pesan"></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm boxed-btn">Kirim</button>
+                                <button type="submit" value="submit" class="button button-contactForm boxed-btn">Kirim</button>
                             </div>
                         </form>
                     </div>

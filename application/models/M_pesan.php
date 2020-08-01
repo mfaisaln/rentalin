@@ -8,5 +8,8 @@ class M_pesan extends CI_Model{
     $this->db->where('id_cu', $id);
     $this->db->update('contactus', $data); // Untuk mengeksekusi perintah update data
   }
+  function tambah_kontak($data){
+		$this->db->insert('contactus', $data);
+  }
 }
 ?>

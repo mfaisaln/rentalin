@@ -3,11 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Watch shop | eCommers</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico') ?>">
 
     <!-- CSS here -->
     <?php $this->load->view('css');?> 
@@ -41,7 +39,7 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Pilihan Pinjaman Sesuai Kebutuhan</h1>
+                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Pilihlah Pinjaman Sesuai Kebutuhan</h1>
                                     <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Dapatkan pinjaman tanpa susah mencari barang, mudah dan cepat dengan pengajuan online.</p>
                                     <!-- Hero-btn -->
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
@@ -61,55 +59,80 @@
             </div>
         </div>
         <!-- slider Area End-->
-        <!-- ? New Product Start -->
-        <section class="new-product-area section-padding30">
+        <!--? Popular Items Start -->
+        <div class="popular-items section-padding30">
             <div class="container">
                 <!-- Section tittle -->
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="section-tittle mb-70">
-                            <h2>New Arrivals</h2>
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-8 col-md-10">
+                        <div class="section-tittle mb-70 text-center">
+                            <h2>Produk Terbaru</h2>
+                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
+                    <table >
+                        <?php
+                        $kolom = 3; 
+                        $i=1;    
+                        $i =1;
+                        if(!empty($barang)){
+                                
+                                
+                            foreach($barang as $data){
+                                if(($i) % $kolom== 1) {    
+                                ?>
+                                    <tr>
+                                <?php 
+                                }
+                                ?>
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-new-pro mb-30 text-center">
-                            <div class="product-img">
-                                <img src="<?php echo site_url('assets2/img/gallery/new_product1.png ') ?>" alt="">
+                        <div class="single-popular-items mb-50 text-center">
+                            <div class="popular-img">
+                                <img src="<?php echo base_url('upload/produk/'.$data->image1) ?>" alt="">
+                                <a href="<?php echo base_url("Pinjam/detail_pinjaman/".$data->id_barang) ?>">
+                                    <div class="img-cap">
+                                        <span>Lihat Barang</span>
+                                    </div>
+                                </a>
+                                <div class="favorit-items">
+                                    <span class="flaticon-heart"></span>
+                                </div>
                             </div>
-                            <div class="product-caption">
-                                <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                            <div class="popular-caption">
+                                <h3><a href="product_details.html"><?php echo$data->nama_barang; ?></a></h3>
+                                <span>
+                                <?php
+                                    $hasil_rupiah = "Rp " . number_format($data->harga,2,',','.');
+                                    echo $hasil_rupiah;
+                                ?>/ Hari
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-new-pro mb-30 text-center">
-                            <div class="product-img">
-                                <img src="<?php echo site_url('assets2/img/gallery/new_product2.png ') ?>" alt="">
-                            </div>
-                            <div class="product-caption">
-                                <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-new-pro mb-30 text-center">
-                            <div class="product-img">
-                                <img src="<?php echo site_url('assets2/img/gallery/new_product3.png ') ?>" alt="">
-                            </div>
-                            <div class="product-caption">
-                                <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
-                            </div>
-                        </div>
+                    <?php
+                            if(($i) % $kolom== 0) {    
+                            ?>
+                                </tr>
+                            <?php
+                            
+                            }
+                            $i++;
+                        }
+                    }
+                    ?>
+                    </table>
+                </div>
+                <!-- Button -->
+                <div class="row justify-content-center">
+                    <div class="room-btn pt-70">
+                        <a href="<?php echo base_url('Pinjam'); ?>" class="btn view-btn1">View More Products</a>
                     </div>
                 </div>
             </div>
-        </section>
-        <!--  New Product End -->
+        </div>
+        <!-- Popular Items End -->
         <!--? Video Area Start -->
         <div class="video-area">
             <div class="container-fluid">
@@ -236,70 +259,7 @@
         </div>
         <!-- Shop Method End-->
     </main>
-    <footer>
-        <!-- Footer Start-->
-        <div class="footer-area footer-padding">
-            <div class="container">
-                <div class="row d-flex justify-content-between">
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="single-footer-caption mb-30">
-                                <!-- logo -->
-                                <div class="footer-logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
-                                </div>
-                                <div class="footer-tittle">
-                                    <div class="footer-pera">
-                                        <p>Asorem ipsum adipolor sdit amet, consectetur adipisicing elitcf sed do eiusmod tem.</p>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Quick Links</h4>
-                                <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#"> Offers & Discounts</a></li>
-                                    <li><a href="#"> Get Coupon</a></li>
-                                    <li><a href="#">  Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>New Products</h4>
-                                <ul>
-                                    <li><a href="#">Woman Cloth</a></li>
-                                    <li><a href="#">Fashion Accessories</a></li>
-                                    <li><a href="#"> Man Accessories</a></li>
-                                    <li><a href="#"> Rubber made Toys</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Support</h4>
-                                <ul>
-                                    <li><a href="#">Frequently Asked Questions</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Report a Payment Issue</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer bottom -->
-                <?php $this->load->view('footer');?>         
-        <!-- Footer End-->
-    </footer>
+    <?php $this->load->view('footer');?>         
     <!--? Search model Begin -->
     <div class="search-model-box">
         <div class="h-100 d-flex align-items-center justify-content-center">

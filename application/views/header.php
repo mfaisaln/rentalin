@@ -38,17 +38,19 @@
                                 <a href="login.html"><span class="flaticon-user"></span></a>
                                 <ul class="submenu">
                                 <li><a href="login.html">Login</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
+                                        <li><a href="cart.html">Cart</a></li>.$data->id_user
                                 </ul>
                             </li> -->
                             <li><a href="<?php echo base_url('Kontak'); ?>">Kontak</a></li>
                             <?php
                             if($this->session->userdata('status_user') == "login"){
+                                
                             ?>
                                 <li><a href="#">Akun</a>
                                     <ul class="submenu">
-                                        <li><a href="login.html">Ganti Password</a></li>
-                                        <li><a href="<?php echo base_url('User/DetailAkun'); ?>">Detail Akun</a></li>
+                                        
+                                        <li><a href="<?php echo base_url("Akun/EditPass/".$this->session->userdata('id_user')) ?>">Ganti Password</a></li>
+                                        <li><a href="<?php echo base_url('Akun/DetailAkun/'.$this->session->userdata('id_user')); ?>">Detail Akun</a></li>
                                         <li><a href="<?php echo base_url('Login/logoutUser'); ?>">Logout</a></li>
                                     </ul>
                                 </li>

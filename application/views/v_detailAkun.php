@@ -26,7 +26,7 @@
    <!-- Preloader Start-->
    <header>
    <?php $this->load->view('header');?> 
-      <!-- Header End -->
+      <!-- Header End <?php echo base_url('upload/produk/'.$data->foto_users) ?> -->
    </header>
       <main>
       <!--================Blog Area =================-->
@@ -35,8 +35,10 @@
                <div class="row">
                <?php foreach($users as $data){?>
                   <div class="col-lg-5 posts-list">
-                     <div class="feature-img">
-                        <img src="<?php echo base_url('upload/produk/'.$data->foto_users) ?>" style="width:100%" />
+                     <div class="feature-img align-items-center">
+                        <img src="<?php echo base_url('upload/produk/'.$data->foto_users) ?>" style="width:100%; padding-bottom:10px" />
+                        <a href="<?php echo base_url("Akun/EditFoto/".$data->id_user) ?>"><button class="button rounded-0 danger-bg text-white w-100 btn_1 boxed-btn"
+                                 type="submit">Ganti Foto</button></a>
                      </div>
                   </div> 
                   <div class="col-lg-7">
@@ -62,11 +64,18 @@
                                  fraction of the camp price. However, who has the willpower
                               </p>
                               <p class="excert">
-                                    <strong style="padding-right:10px;">KTP: </strong> <img src="<?php echo base_url('upload/produk/'.$data->ktp) ?>" width="64" />
-                                    <strong style="padding-right:10px;">KTP: </strong> <img src="<?php echo base_url('upload/produk/'.$data->kk) ?>" width="64" />
+                                    <strong style="padding-right:10px;">KTP: </strong> <img src="<?php echo base_url('upload/produk/'.$data->ktp) ?>" width="200" style="padding-right:30px;" />
+                                    <a href="<?php echo base_url("Akun/EditKTP/".$data->id_user) ?>" style="collor:red;">Ganti KTP</a>
                                 </p>
-                              <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                                 type="submit">Ubah</button>
+                                <p class="excert">
+                                    
+                                    <strong style="padding-right:10px;">KTP: </strong> <img src="<?php echo base_url('upload/produk/'.$data->kk) ?>" width="200" style="padding-right:30px;"/>
+                                    <a href="<?php echo base_url("Akun/EditKK/".$data->id_user) ?>" style="collor:red;">Ganti KK</a>
+                                    <!-- <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
+                                    <!-- <a href="#" class="genric-btn danger circle">Ganti KTP</a> -->
+                                </p>
+                              <a href="<?php echo base_url("Akun/EditAkun/".$data->id_user) ?>"><button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                                 type="submit">Ubah</button></a>
                            </div>
                         </div>
                      </div>

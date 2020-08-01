@@ -94,7 +94,7 @@
                                  fraction of the camp price. However, who has the willpower
                               </p>
                               <?php
-                                 if($this->session->userdata('status') != "login"){
+                                 if($this->session->userdata('status') == "login"){
                               ?>
                               <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
                                  type="submit">Pinjam</button>

@@ -50,8 +50,57 @@ class M_user extends CI_Model{
     $this->db->where('username', $id);
     $this->db->update('admin', $data); // Untuk mengeksekusi perintah update data
   }
+  public function editAkun($id,$data){
+    $this->db->where('id_user', $id);
+    $this->db->update('users', $data); // Untuk mengeksekusi perintah update data
+  }
   public function cari($where){
     return $this->db->get_where('admin',$where)->result();
   }
+  public function cariUsers($where){
+    return $this->db->get_where('users',$where)->result();
+  }
+  // public function cariEmail($where){
+  //   return $this->db->get_where('users',$where)->result();
+  // }
+  public function editF($id){
+    $row = $this->db->where('id_user',$id)->get('users')->row();
+    if($row->foto_users != "default.jpg"){
+      unlink('./upload/produk/'.$row->foto_users);
+    }
+    return true;     
+
+    // $this->db->where('id_barang', $id);
+    // $this->db->delete('barang'); // Untuk mengeksekusi perintah delete data
+  }
+  public function editFoto($id,$data){
+    $this->db->where('id_user', $id);
+    $this->db->update('users', $data); // Untuk mengeksekusi perintah update data
+  }
+  public function editKT($id){
+    $row = $this->db->where('id_user',$id)->get('users')->row();
+    if($row->ktp != "default.jpg"){
+      unlink('./upload/produk/'.$row->ktp);
+    }
+    return true;     
+
+    // $this->db->where('id_barang', $id);
+    // $this->db->delete('barang'); // Untuk mengeksekusi perintah delete data
+  }
+  public function editKK($id){
+    $row = $this->db->where('id_user',$id)->get('users')->row();
+    if($row->kk != "default.jpg"){
+      unlink('./upload/produk/'.$row->kk);
+    }
+    return true;     
+
+    // $this->db->where('id_barang', $id);
+    // $this->db->delete('barang'); // Untuk mengeksekusi perintah delete data
+  }
+  function cek_pass($table,$where){
+		$row = $this->db->get_where($table,$where)->row();
+    	return $row->password;	
+	}		
+  
 }
 ?>

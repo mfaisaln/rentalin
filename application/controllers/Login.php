@@ -80,9 +80,11 @@ class Login extends CI_Controller {
 			'email' => $email,
 			'password' => base64_encode($password)
 			);
+		$id_users = $this->m_login->cek_id("users",$where);
 		$cek = $this->m_login->cek_loginUser("users",$where)->num_rows();
 		if($cek > 0){
 			$data_session = array(
+				'id_user' => $id_users,
 				'nama_user' => $email,
 				'status_user' => "login"
 				);
